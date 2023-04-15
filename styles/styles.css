@@ -1,14 +1,23 @@
 html {
-    height: 100%;
-  }
-  
-  body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-  }
-  
-  footer {
-    margin-top: auto;
-  }
-  
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+footer {
+  margin-top: auto;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 150px); /* Adjust this value if needed */
+}
+.form-wrapper {
+  max-width: 400px; /* Adjust this value according to your preference */
+}
