@@ -180,10 +180,11 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const chart = new Chart(ctx, {
-    type: "doughnut",
+    type: "pie",
     data: nutritionData,
     options: {
-      cutoutPercentage: 60,
+      responsive: true, // Set responsive to true
+      maintainAspectRatio: false, // Set maintainAspectRatio to false
     },
   });
 });
