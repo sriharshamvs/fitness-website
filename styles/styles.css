@@ -6,6 +6,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  margin: 0;
 }
 
 .footer a {
@@ -192,4 +193,26 @@ nav {
 .carousel-control-prev-icon:hover,
 .carousel-control-next-icon:hover {
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Custom Navbar Styles */
+.custom-navbar {
+  padding: 0.5rem 1rem;
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+}
+
+/* Optional: Adjust the font size for the Navbar Brand */
+.custom-navbar .navbar-brand {
+  font-size: 1.2rem;
+}
+
+.full-height {
+  min-height: calc(
+    100vh - (100px + 200px)
+  ); /* height of the navigation bar + height of the footer */
 }

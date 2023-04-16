@@ -62,7 +62,7 @@
   <body>
     <!-- Navigaion bar -->
     <div class="d-flex flex-grow-1">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand highlight" href="index.html">Fitness Hub</a>
           <button
@@ -80,22 +80,28 @@
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="index.html"
-                  >Home</a
+                  ><i class="fas fa-home"></i> Home</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About Us</a>
+                <a class="nav-link" href="about.html"
+                  ><i class="fas fa-info-circle"></i> About Us</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact Us</a>
+                <a class="nav-link" href="contact.html"
+                  ><i class="fas fa-envelope"></i> Contact Us</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="plans.html">Our Plans</a>
+                <a class="nav-link" href="plans.html"
+                  ><i class="fas fa-dumbbell"></i> Our Plans</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link user-login" href="login.html"
-                  ><i class="fas fa-user"></i
-                > Login</a>
+                  ><i class="fas fa-user"></i> Login</a
+                >
               </li>
             </ul>
           </div>
@@ -104,73 +110,82 @@
     </div>
 
     <!-- Website content -->
-    <div class="container mt-5" style="margin-bottom: 30px">
-      <h1>Our Plans</h1>
-      <p>
-        Choose from our range of fitness plans designed to help you reach your
-        goals.
-      </p>
-
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-header">
-              <h3>Basic Plan</h3>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">$19.99/month</h4>
-              <p class="card-text">
-                Access to our workout library and basic diet plans.
-              </p>
-              <ul>
-                <li>Workout library</li>
-                <li>Basic diet plans</li>
-                <li>Monthly progress tracking</li>
-              </ul>
-              <a href="signup.html" class="btn btn-primary">Sign Up Now</a>
-            </div>
+    <div
+      class="container full-height d-flex justify-content-center align-items-center"
+    >
+      <div class="content-wrapper">
+        <!-- Your existing content goes here -->
+        <div class="container mt-5" style="margin-bottom: 30px">
+          <h1>Our Plans</h1>
+          <div class="body-text">
+            <p>
+              Choose from our range of fitness plans designed to help you reach
+              your goals.
+            </p>
           </div>
-        </div>
 
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-header">
-              <h3>Premium Plan</h3>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-header">
+                  <h3>Basic Plan</h3>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">$19.99/month</h4>
+                  <p class="card-text">
+                    Access to our workout library and basic diet plans.
+                  </p>
+                  <ul>
+                    <li>Workout library</li>
+                    <li>Basic diet plans</li>
+                    <li>Monthly progress tracking</li>
+                  </ul>
+                  <a href="signup.html" class="btn btn-primary">Sign Up Now</a>
+                </div>
+              </div>
             </div>
-            <div class="card-body">
-              <h4 class="card-title">$39.99/month</h4>
-              <p class="card-text">
-                Personalized workout and meal plans, plus access to a dedicated
-                fitness coach.
-              </p>
-              <ul>
-                <li>Personalized workout plans</li>
-                <li>Custom meal plans</li>
-                <li>Dedicated fitness coach</li>
-                <li>Weekly progress tracking</li>
-              </ul>
-              <a href="signup.html" class="btn btn-primary">Sign Up Now</a>
+
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-header">
+                  <h3>Premium Plan</h3>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">$39.99/month</h4>
+                  <p class="card-text">
+                    Personalized workout and meal plans, plus access to a
+                    dedicated fitness coach.
+                  </p>
+                  <ul>
+                    <li>Personalized workout plans</li>
+                    <li>Custom meal plans</li>
+                    <li>Dedicated fitness coach</li>
+                    <li>Weekly progress tracking</li>
+                  </ul>
+                  <a href="signup.html" class="btn btn-primary">Sign Up Now</a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-header">
-              <h3>Elite Plan</h3>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">$59.99/month</h4>
-              <p class="card-text">
-                All Premium features, plus advanced analytics, and priority
-                support.
-              </p>
-              <ul>
-                <li>Advanced workout analytics</li>
-                <li>Nutrition tracking</li>
-                <li>Priority customer support</li>
-                <li>Access to exclusive content</li>
-              </ul>
-              <a href="signup.html" class="btn btn-primary">Sign Up Now</a>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-header">
+                  <h3>Elite Plan</h3>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">$59.99/month</h4>
+                  <p class="card-text">
+                    All Premium features, plus advanced analytics, and priority
+                    support.
+                  </p>
+                  <ul>
+                    <li>Advanced workout analytics</li>
+                    <li>Nutrition tracking</li>
+                    <li>Priority customer support</li>
+                    <li>Access to exclusive content</li>
+                  </ul>
+                  <a href="signup.html" class="btn btn-primary">Sign Up Now</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -178,7 +193,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-light text-center text-lg-start mt-auto">
+    <footer class="bg-dark text-center text-lg-start text-white mt-auto footer">
       <!-- Grid container -->
       <div class="container p-4">
         <!--Grid row-->
@@ -199,16 +214,16 @@
 
             <ul class="list-unstyled mb-0">
               <li>
-                <a href="about.html" class="text-dark">About Us</a>
+                <a href="about.html">About Us</a>
               </li>
               <li>
-                <a href="contact.html" class="text-dark">Contact Us</a>
+                <a href="contact.html">Contact Us</a>
               </li>
               <li>
-                <a href="signup.html" class="text-dark">Sign Up</a>
+                <a href="signup.html">Sign Up</a>
               </li>
               <li>
-                <a href="plans.html" class="text-dark">Our Plans</a>
+                <a href="plans.html">Our Plans</a>
               </li>
             </ul>
           </div>
@@ -220,33 +235,23 @@
 
             <ul class="list-unstyled mb-0">
               <li>
-                <a
-                  href="https://www.facebook.com/your_page"
-                  class="text-dark"
-                  target="_blank"
+                <a href="https://www.facebook.com/your_page" target="_blank"
                   ><i class="fab fa-facebook-f"></i> Facebook</a
                 >
               </li>
               <li>
-                <a
-                  href="https://www.twitter.com/your_account"
-                  class="text-dark"
-                  target="_blank"
+                <a href="https://www.twitter.com/your_account" target="_blank"
                   ><i class="fab fa-twitter"></i> Twitter</a
                 >
               </li>
               <li>
-                <a
-                  href="https://www.instagram.com/your_account"
-                  class="text-dark"
-                  target="_blank"
+                <a href="https://www.instagram.com/your_account" target="_blank"
                   ><i class="fab fa-instagram"></i> Instagram</a
                 >
               </li>
               <li>
                 <a
                   href="https://www.linkedin.com/company/your_company"
-                  class="text-dark"
                   target="_blank"
                   ><i class="fab fa-linkedin-in"></i> LinkedIn</a
                 >
@@ -260,11 +265,15 @@
       <!-- Grid container -->
 
       <!-- Copyright -->
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      <div
+        class="text-center p-3"
+        style="background-color: rgba(255, 255, 255, 0.1)"
+      >
         &copy; 2023 Fitness Hub. All rights reserved.
       </div>
       <!-- Copyright -->
     </footer>
     <!-- Footer -->
+    <script src="script.js"></script>
   </body>
 </html>
