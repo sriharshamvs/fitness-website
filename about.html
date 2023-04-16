@@ -54,17 +54,6 @@
     <script src="script.js"></script>
     <!-- Custom local CSS -->
     <style>
-      .quote-section {
-        background-color: #f8f9fa;
-        padding: 50px 0;
-        text-align: center;
-        font-style: italic;
-      }
-
-      .quote-author {
-        font-weight: bold;
-        margin-top: 15px;
-      }
       .navbar-brand.highlight {
         color: #007bff;
         font-weight: bold;
@@ -74,7 +63,7 @@
   <body>
     <!-- Navigaion bar -->
     <div class="d-flex flex-grow-1">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand highlight" href="index.html">Fitness Hub</a>
           <button
@@ -91,9 +80,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="index.html"
-                  >Home</a
-                >
+                <a class="nav-link" href="index.html">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" href="about.html">About Us</a>
@@ -106,8 +93,8 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link user-login" href="login.html"
-                  ><i class="fas fa-user"></i
-                > Login</a>
+                  ><i class="fas fa-user"></i> Login</a
+                >
               </li>
             </ul>
           </div>
@@ -119,47 +106,94 @@
 
     <div class="container mt-5" style="margin-bottom: 30px">
       <h1>About Us</h1>
-      <p>
-        Welcome to our fitness website! We are dedicated to helping individuals
-        achieve their fitness goals. Our team of experienced trainers and
-        nutritionists work together to create personalized workout plans and
-        diet recommendations tailored to each client's needs.
-      </p>
-
-      <!-- Quote Section -->
-      <section class="quote-section">
+      <div class="intro-text">
         <p>
-          "The only way to keep your health is to eat what you don't want, drink
-          what you don't like, and do what you'd rather not."
+          Welcome to our fitness website! We are dedicated to helping
+          individuals achieve their fitness goals. Our team of experienced
+          trainers and nutritionists work together to create personalized
+          workout plans and diet recommendations tailored to each client's
+          needs.
         </p>
-        <p class="quote-author">- Mark Twain</p>
+      </div>
+
+      <!-- Quote Carousel Section -->
+      <section class="quote-carousel-section py-5">
+        <div id="quote-carousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <p class="quote-text">
+                "The only way to keep your health is to eat what you don't want,
+                drink what you don't like, and do what you'd rather not."
+              </p>
+              <p class="quote-author">- Mark Twain</p>
+            </div>
+            <div class="carousel-item">
+              <p class="quote-text">
+                "To enjoy the glow of good health, you must exercise."
+              </p>
+              <p class="quote-author">- Gene Tunney</p>
+            </div>
+            <div class="carousel-item">
+              <p class="quote-text">
+                "Health is the greatest gift, contentment the greatest wealth,
+                faithfulness the best relationship."
+              </p>
+              <p class="quote-author">- Buddha</p>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#quote-carousel"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#quote-carousel"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
       </section>
+
       <h2>Our Mission</h2>
-      <p>
-        Our mission is to empower people to take control of their health and
-        fitness journey by providing the tools, resources, and support needed to
-        achieve success. We believe that with the right guidance and
-        determination, everyone can reach their fitness goals and live a
-        healthier, happier life.
-      </p>
+      <div class="body-text">
+        <p>
+          Our mission is to empower people to take control of their health and
+          fitness journey by providing the tools, resources, and support needed
+          to achieve success. We believe that with the right guidance and
+          determination, everyone can reach their fitness goals and live a
+          healthier, happier life.
+        </p>
+      </div>
 
       <h2>Our Team</h2>
-      <p>
-        Our team of certified trainers and nutritionists have years of
-        experience in the fitness industry and are committed to helping clients
-        reach their goals. Each team member brings their unique expertise and
-        passion for fitness, creating a supportive and knowledgeable community
-        for our clients.
-      </p>
+      <div class="body-text">
+        <p>
+          Our team of certified trainers and nutritionists have years of
+          experience in the fitness industry and are committed to helping
+          clients reach their goals. Each team member brings their unique
+          expertise and passion for fitness, creating a supportive and
+          knowledgeable community for our clients.
+        </p>
+      </div>
 
       <h2>Developers</h2>
-      <p>
-        We are group of four members with an thought of developing a website for
-        fitness. Our website is a comprehensive online platform that provides
-        resources, tools, and support to individuals looking to improve their
-        physical fitness and overall health. Here are few services that we
-        provide through our website.
-      </p>
+      <div class="body-text">
+        <p>
+          We are group of four members with an thought of developing a website
+          for fitness. Our website is a comprehensive online platform that
+          provides resources, tools, and support to individuals looking to
+          improve their physical fitness and overall health. Here are few
+          services that we provide through our website.
+        </p>
+      </div>
     </div>
     <!-- Team Members -->
     <section class="container mt-5">
@@ -196,6 +230,9 @@
                 ></a>
               </div>
             </div>
+            <div class="devloper-quote">
+              "Your favorite quote or personal motto here"
+            </div>
           </div>
         </div>
 
@@ -229,6 +266,9 @@
                 ></a>
               </div>
             </div>
+            <div class="devloper-quote">
+              "Your favorite quote or personal motto here"
+            </div>
           </div>
         </div>
 
@@ -260,6 +300,9 @@
                   ><i class="fab fa-linkedin-in"></i
                 ></a>
               </div>
+            </div>
+            <div class="devloper-quote">
+              "Your favorite quote or personal motto here"
             </div>
           </div>
         </div>
@@ -294,13 +337,16 @@
                 ></a>
               </div>
             </div>
+            <div class="devloper-quote">
+              "Your favorite quote or personal motto here"
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-light text-center text-lg-start mt-auto">
+    <footer class="bg-dark text-center text-lg-start text-white mt-auto footer">
       <!-- Grid container -->
       <div class="container p-4">
         <!--Grid row-->
@@ -321,16 +367,16 @@
 
             <ul class="list-unstyled mb-0">
               <li>
-                <a href="about.html" class="text-dark">About Us</a>
+                <a href="about.html">About Us</a>
               </li>
               <li>
-                <a href="contact.html" class="text-dark">Contact Us</a>
+                <a href="contact.html">Contact Us</a>
               </li>
               <li>
-                <a href="signup.html" class="text-dark">Sign Up</a>
+                <a href="signup.html">Sign Up</a>
               </li>
               <li>
-                <a href="plans.html" class="text-dark">Our Plans</a>
+                <a href="plans.html">Our Plans</a>
               </li>
             </ul>
           </div>
@@ -342,33 +388,23 @@
 
             <ul class="list-unstyled mb-0">
               <li>
-                <a
-                  href="https://www.facebook.com/your_page"
-                  class="text-dark"
-                  target="_blank"
+                <a href="https://www.facebook.com/your_page" target="_blank"
                   ><i class="fab fa-facebook-f"></i> Facebook</a
                 >
               </li>
               <li>
-                <a
-                  href="https://www.twitter.com/your_account"
-                  class="text-dark"
-                  target="_blank"
+                <a href="https://www.twitter.com/your_account" target="_blank"
                   ><i class="fab fa-twitter"></i> Twitter</a
                 >
               </li>
               <li>
-                <a
-                  href="https://www.instagram.com/your_account"
-                  class="text-dark"
-                  target="_blank"
+                <a href="https://www.instagram.com/your_account" target="_blank"
                   ><i class="fab fa-instagram"></i> Instagram</a
                 >
               </li>
               <li>
                 <a
                   href="https://www.linkedin.com/company/your_company"
-                  class="text-dark"
                   target="_blank"
                   ><i class="fab fa-linkedin-in"></i> LinkedIn</a
                 >
@@ -382,11 +418,15 @@
       <!-- Grid container -->
 
       <!-- Copyright -->
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      <div
+        class="text-center p-3"
+        style="background-color: rgba(255, 255, 255, 0.1)"
+      >
         &copy; 2023 Fitness Hub. All rights reserved.
       </div>
       <!-- Copyright -->
     </footer>
     <!-- Footer -->
+    <script src="script.js"></script>
   </body>
 </html>

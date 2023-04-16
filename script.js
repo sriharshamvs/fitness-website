@@ -47,3 +47,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const quoteSlides = document.querySelectorAll(".quote-slide");
+  let activeSlideIndex = 0;
+
+  function changeQuote() {
+    quoteSlides[activeSlideIndex].classList.remove("active");
+    activeSlideIndex = (activeSlideIndex + 1) % quoteSlides.length;
+    quoteSlides[activeSlideIndex].classList.add("active");
+  }
+
+  setInterval(changeQuote, 5000); // Change quote every 5000 milliseconds (5 seconds)
+});
