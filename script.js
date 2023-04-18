@@ -13,37 +13,41 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Calculate BMI function
-document.addEventListener(
-  "DOMContentLoaded",
-  function calculateBMI(weight, height, gender, age) {
-    const heightInMeters = height / 100;
-    const bmi = weight / (heightInMeters * heightInMeters);
-    return bmi.toFixed(1);
-  }
-);
+function calculateBMI(weight, height, gender, age) {
+  const heightInMeters = height / 100;
+  const bmi = weight / (heightInMeters * heightInMeters);
+  return bmi.toFixed(1);
+}
 
+// Event listener for form submission
+document.getElementById("bmiForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const weight = parseFloat(document.getElementById("weight").value);
+  const height = parseFloat(document.getElementById("height").value);
+  const gender = document.getElementById("gender").value;
+  const age = parseInt(document.getElementById("age").value);
+
+  const bmi = calculateBMI(weight, height, gender, age);
+
+  document.getElementById(
+    "bmiResult"
+  ).innerHTML = `<strong>Your BMI is: </strong><span class="highlighted-bmi">${bmi}</span>`;
+});
+
+// Featurettes image animation
 document.addEventListener("DOMContentLoaded", function () {
-  // Event listener for form submission
-  const form = document.getElementById("bmiForm");
+  const steps = document.querySelectorAll(".step");
 
-  if (form) {
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      const weight = parseFloat(document.getElementById("weight").value);
-      const height = parseFloat(document.getElementById("height").value);
-      const gender = document.getElementById("gender").value;
-      const age = parseInt(document.getElementById("age").value);
-
-      const bmi = calculateBMI(weight, height, gender, age);
-
-      document.getElementById(
-        "bmiResult"
-      ).innerHTML = `<strong>Your BMI is: </strong><span class="highlighted-bmi">${bmi}</span>`;
+  steps.forEach((step) => {
+    step.addEventListener("mouseenter", () => {
+      step.classList.add("show-description");
     });
-  } else {
-    console.error("Form element with ID 'bmiForm' not found.");
-  }
+
+    step.addEventListener("mouseleave", () => {
+      step.classList.remove("show-description");
+    });
+  });
 });
 
 // Featurettes image animation

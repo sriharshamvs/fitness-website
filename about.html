@@ -58,18 +58,19 @@
         color: #007bff;
         font-weight: bold;
       }
-      body {
-        background-image: url("assets/images/y-so-serious-white.png");
-        background-color: #cccccc;
-      }
     </style>
   </head>
   <body>
     <!-- Navigaion bar -->
     <div class="d-flex flex-grow-1">
-      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-md" style="background-color: black">
         <div class="container">
-          <a class="navbar-brand highlight" href="index.html">Fitness Hub</a>
+          <a
+            class="navbar-brand highlight"
+            href="index.html"
+            style="color: yellow"
+            >Fitness <span style="color: white">Hub</span></a
+          >
           <button
             class="navbar-toggler"
             type="button"
@@ -84,28 +85,32 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="index.html"
-                  ><i class="fas fa-home"></i> Home</a
+                <a class="nav-link" href="index.html" style="color: yellow">
+                  <i class="fas fa-home"></i> Home</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html"
-                  ><i class="fas fa-info-circle"></i> About Us</a
+                <a class="nav-link" href="about.html" style="color: yellow">
+                  <i class="fas fa-info-circle"></i> About Us</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html"
-                  ><i class="fas fa-envelope"></i> Contact Us</a
+                <a class="nav-link" href="contact.html" style="color: yellow">
+                  <i class="fas fa-envelope"></i> Contact Us</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="plans.html"
-                  ><i class="fas fa-dumbbell"></i> Our Plans</a
+                <a class="nav-link" href="plans.html" style="color: yellow">
+                  <i class="fas fa-dumbbell"></i> Our Plans</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link user-login" href="login.html"
-                  ><i class="fas fa-user"></i> Login</a
+                <a
+                  class="nav-link user-login"
+                  href="login.html"
+                  style="color: yellow"
+                >
+                  <i class="fas fa-user"></i> Login</a
                 >
               </li>
             </ul>
@@ -358,15 +363,18 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-center text-lg-start text-white mt-auto footer">
+    <footer
+      class="text-center text-lg-start text-white mt-auto footer"
+      style="background-color: black"
+    >
       <!-- Grid container -->
       <div class="container p-4">
         <!--Grid row-->
         <div class="row">
           <!--Grid column-->
           <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-            <h5 class="text-uppercase">Fitness Hub</h5>
-            <p>
+            <h5 class="text-uppercase" style="color: yellow">Fitness Hub</h5>
+            <p style="color: yellow">
               Your one-stop destination for personalized workout plans, custom
               meal plans, and fitness resources.
             </p>
@@ -375,20 +383,20 @@
 
           <!--Grid column-->
           <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase">Quick Links</h5>
+            <h5 class="text-uppercase" style="color: yellow">Quick Links</h5>
 
             <ul class="list-unstyled mb-0">
               <li>
-                <a href="about.html">About Us</a>
+                <a href="about.html" class="footer-link">About Us</a>
               </li>
               <li>
-                <a href="contact.html">Contact Us</a>
+                <a href="contact.html" class="footer-link">Contact Us</a>
               </li>
               <li>
-                <a href="signup.html">Sign Up</a>
+                <a href="signup.html" class="footer-link">Sign Up</a>
               </li>
               <li>
-                <a href="plans.html">Our Plans</a>
+                <a href="plans.html" class="footer-link">Our Plans</a>
               </li>
             </ul>
           </div>
@@ -396,29 +404,44 @@
 
           <!--Grid column-->
           <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase">Connect with Us</h5>
-
+            <h5 class="text-uppercase" style="color: yellow">
+              Connect with Us
+            </h5>
             <ul class="list-unstyled mb-0">
               <li>
-                <a href="https://www.facebook.com/your_page" target="_blank"
-                  ><i class="fab fa-facebook-f"></i> Facebook</a
+                <a
+                  href="https://www.facebook.com/your_page"
+                  target="_blank"
+                  class="social-link"
+                >
+                  <i class="fab fa-facebook-f"></i> Facebook</a
                 >
               </li>
               <li>
-                <a href="https://www.twitter.com/your_account" target="_blank"
-                  ><i class="fab fa-twitter"></i> Twitter</a
+                <a
+                  href="https://www.twitter.com/your_account"
+                  target="_blank"
+                  class="social-link"
+                >
+                  <i class="fab fa-twitter"></i> Twitter</a
                 >
               </li>
               <li>
-                <a href="https://www.instagram.com/your_account" target="_blank"
-                  ><i class="fab fa-instagram"></i> Instagram</a
+                <a
+                  href="https://www.instagram.com/your_account"
+                  target="_blank"
+                  class="social-link"
+                >
+                  <i class="fab fa-instagram"></i> Instagram</a
                 >
               </li>
               <li>
                 <a
                   href="https://www.linkedin.com/company/your_company"
                   target="_blank"
-                  ><i class="fab fa-linkedin-in"></i> LinkedIn</a
+                  class="social-link"
+                >
+                  <i class="fab fa-linkedin-in"></i> LinkedIn</a
                 >
               </li>
             </ul>
@@ -428,13 +451,12 @@
         <!--Grid row-->
       </div>
       <!-- Grid container -->
-
       <!-- Copyright -->
       <div
         class="text-center p-3"
-        style="background-color: rgba(255, 255, 255, 0.1)"
+        style="background-color: rgba(255, 255, 0, 0.1)"
       >
-        &copy; 2023 Fitness Hub. All rights reserved.
+        © 2023 Fitness Hub. All rights reserved.
       </div>
       <!-- Copyright -->
     </footer>
