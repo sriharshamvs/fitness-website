@@ -1,4 +1,4 @@
-// Active navigation pop 
+// Active navigation pop
 document.addEventListener("DOMContentLoaded", function () {
   var currentUrl = location.pathname.split("/").pop();
 
@@ -13,26 +13,37 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Calculate BMI function
-function calculateBMI(weight, height, gender, age) {
-  const heightInMeters = height / 100;
-  const bmi = weight / (heightInMeters * heightInMeters);
-  return bmi.toFixed(1);
-}
+document.addEventListener(
+  "DOMContentLoaded",
+  function calculateBMI(weight, height, gender, age) {
+    const heightInMeters = height / 100;
+    const bmi = weight / (heightInMeters * heightInMeters);
+    return bmi.toFixed(1);
+  }
+);
 
-// Event listener for form submission
-document.getElementById("bmiForm").addEventListener("submit", function (event) {
-  event.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+  // Event listener for form submission
+  const form = document.getElementById("bmiForm");
 
-  const weight = parseFloat(document.getElementById("weight").value);
-  const height = parseFloat(document.getElementById("height").value);
-  const gender = document.getElementById("gender").value;
-  const age = parseInt(document.getElementById("age").value);
+  if (form) {
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
 
-  const bmi = calculateBMI(weight, height, gender, age);
+      const weight = parseFloat(document.getElementById("weight").value);
+      const height = parseFloat(document.getElementById("height").value);
+      const gender = document.getElementById("gender").value;
+      const age = parseInt(document.getElementById("age").value);
 
-  document.getElementById(
-    "bmiResult"
-  ).innerHTML = `<strong>Your BMI is: </strong><span class="highlighted-bmi">${bmi}</span>`;
+      const bmi = calculateBMI(weight, height, gender, age);
+
+      document.getElementById(
+        "bmiResult"
+      ).innerHTML = `<strong>Your BMI is: </strong><span class="highlighted-bmi">${bmi}</span>`;
+    });
+  } else {
+    console.error("Form element with ID 'bmiForm' not found.");
+  }
 });
 
 // Featurettes image animation
@@ -187,4 +198,91 @@ document.addEventListener("DOMContentLoaded", function () {
       maintainAspectRatio: false, // Set maintainAspectRatio to false
     },
   });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Get the form element
+  const loginForm = document.getElementById("loginForm");
+
+  // Validate form on submit
+  loginForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    // Get the email and password fields
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+
+    // Check if email and password are valid
+    if (!emailInput.checkValidity() || !passwordInput.checkValidity()) {
+      // Show custom error messages if any input is invalid
+      if (!emailInput.checkValidity()) {
+        emailInput.classList.add("is-invalid");
+      } else {
+        emailInput.classList.remove("is-invalid");
+      }
+      if (!passwordInput.checkValidity()) {
+        passwordInput.classList.add("is-invalid");
+      } else {
+        passwordInput.classList.remove("is-invalid");
+      }
+    } else {
+      // If both inputs are valid, submit the form
+      loginForm.submit();
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const signupForm = document.getElementById("signupForm");
+
+  if (signupForm) {
+    signupForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      // Get input elements
+      const username = document.getElementById("username");
+      const email = document.getElementById("email");
+      const password = document.getElementById("password");
+      const confirmPassword = document.getElementById("confirm-password");
+
+      // Validate input elements
+      let isValid = true;
+
+      if (!username.checkValidity()) {
+        username.classList.add("is-invalid");
+        isValid = false;
+      } else {
+        username.classList.remove("is-invalid");
+      }
+
+      if (!email.checkValidity()) {
+        email.classList.add("is-invalid");
+        isValid = false;
+      } else {
+        email.classList.remove("is-invalid");
+      }
+
+      if (!password.checkValidity()) {
+        password.classList.add("is-invalid");
+        isValid = false;
+      } else {
+        password.classList.remove("is-invalid");
+      }
+
+      if (
+        password.value !== confirmPassword.value ||
+        !confirmPassword.checkValidity()
+      ) {
+        confirmPassword.classList.add("is-invalid");
+        isValid = false;
+      } else {
+        confirmPassword.classList.remove("is-invalid");
+      }
+
+      // Submit the form if validation passes
+      if (isValid) {
+        console.log("Form submitted"); // Replace this line with the actual form submission logic
+      }
+    });
+  }
 });

@@ -130,7 +130,7 @@
               resources.
             </p>
           </div>
-          <form>
+          <form id="signupForm">
             <div class="mb-3">
               <label for="username" class="form-label">Username</label>
               <input
@@ -138,7 +138,13 @@
                 class="form-control"
                 id="username"
                 placeholder="Choose a username"
+                required
+                minlength="3"
+                maxlength="20"
               />
+              <div class="invalid-feedback">
+                Username must be between 3 and 20 characters long.
+              </div>
             </div>
             <div class="mb-3">
               <label for="email" class="form-label">Email address</label>
@@ -147,7 +153,12 @@
                 class="form-control"
                 id="email"
                 placeholder="name@example.com"
+                required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
               />
+              <div class="invalid-feedback">
+                Please enter a valid email address.
+              </div>
             </div>
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
@@ -156,7 +167,12 @@
                 class="form-control"
                 id="password"
                 placeholder="Choose a secure password"
+                required
+                minlength="8"
               />
+              <div class="invalid-feedback">
+                Password must be at least 8 characters long.
+              </div>
             </div>
             <div class="mb-3">
               <label for="confirm-password" class="form-label"
@@ -167,7 +183,11 @@
                 class="form-control"
                 id="confirm-password"
                 placeholder="Confirm your password"
+                required
               />
+              <div class="invalid-feedback" id="confirm-password-feedback">
+                Passwords do not match.
+              </div>
             </div>
             <button type="submit" class="btn btn-primary">Sign Up</button>
           </form>

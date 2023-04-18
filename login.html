@@ -124,7 +124,7 @@
         <!-- Your existing content goes here -->
         <div class="container mt-5" style="margin-bottom: 30px">
           <h1>Login</h1>
-          <form>
+          <form id="loginForm">
             <div class="mb-3">
               <label for="email" class="form-label">Email address</label>
               <input
@@ -132,7 +132,12 @@
                 class="form-control"
                 id="email"
                 placeholder="name@example.com"
+                required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
               />
+              <div class="invalid-feedback">
+                Please enter a valid email address.
+              </div>
             </div>
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
@@ -141,7 +146,12 @@
                 class="form-control"
                 id="password"
                 placeholder="Enter your password"
+                required
+                minlength="8"
               />
+              <div class="invalid-feedback">
+                Password must be at least 8 characters long.
+              </div>
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
           </form>
