@@ -114,56 +114,103 @@
     <div class="background_pattern">
       <!-- Website content -->
       <div class="container mt-5" style="margin-bottom: 30px">
-        <h1 style="margin-bottom: 10px">Welcome to Fitness Hub!</h1>
-
-        <!-- Add Bootstrap Carousel -->
-        <div
-          id="carouselExample"
-          class="carousel slide"
-          data-bs-ride="carousel"
-        >
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img
-                src="assets/images/workout-exercise-gym.jpg"
-                class="d-block w-100"
-                alt="Slide 1"
-              />
+        <div class="container mt-5 card">
+          <div class="row">
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
+              <!-- Add Text Card -->
+              <div>
+                <div style="padding: 50px">
+                  <h1 class="card-title text-left">WELLNESS. FITNESS. MIDFULLNESS.</h1>
+                  <h1 class="card-title text-left">BROUGHT TO YOUR TEAM BY FITNESS HUB</h1>
+                  <p class="card-text text-left">
+                    Join the moment and transform your body at fitness hub studio. We are dedicated to helping you achieve your fitness goals.
+                  </p>
+                  <div class="d-flex" style="margin-top: 10px; margin-bottom: 10px;">
+                    <a href="signup.html" class="btn btn-primary" style="background-color: black; color: yellow">Sign Up</a>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="carousel-item">
-              <img
-                src="assets/images/workout-weight.jpg"
-                class="d-block w-100"
-                alt="Slide 2"
-              />
-            </div>
-            <div class="carousel-item">
-              <img
-                src="assets/images/nutrition.jpg"
-                class="d-block w-100"
-                alt="Slide 3"
-              />
+            <div class="col-md-6">
+              <!-- Add Bootstrap Carousel -->
+              <div
+                id="carouselExample"
+                class="carousel slide"
+                data-bs-ride="carousel"
+              >
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img
+                      src="assets/images/carousel/1.jpeg"
+                      class="d-block w-100"
+                      alt="Slide 1"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="assets/images/carousel/2.jpeg"
+                      class="d-block w-100"
+                      alt="Slide 2"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="assets/images/carousel/3.jpeg"
+                      class="d-block w-100"
+                      alt="Slide 3"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="assets/images/carousel/4.jpeg"
+                      class="d-block w-100"
+                      alt="Slide 4"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="assets/images/carousel/5.jpg"
+                      class="d-block w-100"
+                      alt="Slide 5"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="assets/images/carousel/6.jpg"
+                      class="d-block w-100"
+                      alt="Slide 6"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="assets/images/carousel/7.jpeg"
+                      class="d-block w-100"
+                      alt="Slide 7"
+                    />
+                  </div>
+                </div>
+                <button
+                  class="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#carouselExample"
+                  data-bs-slide="prev"
+                >
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button
+                  class="carousel-control-next"
+                  type="button"
+                  data-bs-target="#carouselExample"
+                  data-bs-slide="next"
+                >
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
             </div>
           </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
+        </div>        
 
         <div class="intro-text">
           <p>
@@ -258,7 +305,7 @@
 
         <!-- /END THE FEATURETTES -->
         <!-- BMI Calculator -->
-        <div class="container mt-5">
+        <div class="container mt-5 card">
           <div style="background-color: white; padding: 20px">
             <div class="row">
               <div class="col-md-6">
@@ -376,28 +423,28 @@
           </p>
           <div class="chart-body">
             <div class="chart-grid">
-              <div class="chart-container">
+              <div class="chart-container card card">
                 <h2>Overall Fitness vs. Obesity</h2>
                 <div class="chart-wrapper">
                   <canvas id="fitnessData"></canvas>
                 </div>
               </div>
 
-              <div class="chart-container">
+              <div class="chart-container card">
                 <h2>Average Exercise Time (Hours/Week)</h2>
                 <div class="chart-wrapper">
                   <canvas id="exerciseTimeChart"></canvas>
                 </div>
               </div>
 
-              <div class="chart-container">
+              <div class="chart-container card">
                 <h2>Percentage of Physically Active Adults</h2>
                 <div class="chart-wrapper">
                   <canvas id="activeAdultsChart"></canvas>
                 </div>
               </div>
 
-              <div class="chart-container">
+              <div class="chart-container card">
                 <h2>Nutrition</h2>
                 <div class="chart-wrapper">
                   <canvas id="nutritionChart"></canvas>
