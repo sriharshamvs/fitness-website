@@ -282,6 +282,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Submit the form if validation passes
       if (isValid) {
         console.log("Form submitted"); // Replace this line with the actual form submission logic
+        signupForm.submit();
       }
     });
   }
