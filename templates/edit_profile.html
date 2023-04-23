@@ -1,0 +1,68 @@
+{% extends "base.html" %} {% block content %}
+<div class="container full-height">
+  <div
+    class="row justify-content-center align-items-center"
+    style="height: 100%"
+  >
+    <div class="col-md-6">
+      <div class="card login-card">
+        <div class="card-body">
+          <h1 class="card-title">Edit Profile</h1>
+          <form method="POST" action="{{ url_for('edit_profile') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+            <div class="mb-3">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+                value="{{ current_user.username }}"
+                required
+                minlength="3"
+                maxlength="20"
+                style="width: 100%"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                value="{{ current_user.email }}"
+                required
+                minlength="3"
+                maxlength="20"
+                style="width: 100%"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="about">Tell Something About Yourself</label>
+              <textarea
+                class="form-control"
+                id="about"
+                name="about"
+                rows="5"
+                required
+                minlength="10"
+                maxlength="500"
+              >
+{{ current_user.about }}</textarea
+              >
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              style="background-color: black; color: yellow"
+            >
+              Update Profile
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
