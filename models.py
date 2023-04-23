@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
+from datetime import datetime
 
 db = SQLAlchemy()
 
@@ -26,3 +27,16 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
+
+
+class Workout(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    type = db.Column(db.String(50), nullable=False)
+    name = db.Column(db.String(100), nullable=False)
+    reps = db.Column(db.String(100), nullable=False)
+
+
+class Nutrition(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    time = db.Column(db.String(50), nullable=False)
+    meal = db.Column(db.String(200), nullable=False)

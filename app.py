@@ -4,7 +4,12 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from flask_login import LoginManager
 from flask_wtf.csrf import CSRFProtect
 from flask_migrate import Migrate
-from models import db, User, Plan
+from sqlalchemy.sql.expression import func
+from models import db, User, Plan, Workout, Nutrition
+
+from random import choice
+
+from constanst import WORKOUTS, NUTRITION_DATA
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
@@ -43,10 +48,47 @@ def seed_plans():
     db.session.commit()
 
 
+def populate_workouts_and_nutrition():
+    # Populate workouts
+    for workout_type, exercises in WORKOUTS.items():
+        for exercise in exercises:
+            workout = Workout(type=workout_type,
+                              name=exercise['name'], reps=exercise['reps'])
+            db.session.add(workout)
+
+    # Populate nutrition data
+    for nutrition_data in NUTRITION_DATA:
+        for meal in nutrition_data['meals']:
+            nutrition = Nutrition(time=nutrition_data['time'], meal=meal)
+            db.session.add(nutrition)
+
+    db.session.commit()
+
+
+def get_random_workout_and_nutrition():
+    workout_types = ['fullBody', 'upperBody', 'lowerBody', 'cardio']
+    random_workout_type = choice(workout_types)
+
+    workouts = Workout.query.filter(Workout.type == random_workout_type).order_by(
+        func.random()).limit(10).all()
+
+    breakfast = Nutrition.query.filter(
+        Nutrition.time == "Breakfast").order_by(func.random()).first()
+    lunch = Nutrition.query.filter(
+        Nutrition.time == "Lunch").order_by(func.random()).first()
+    dinner = Nutrition.query.filter(
+        Nutrition.time == "Dinner").order_by(func.random()).first()
+    snack = Nutrition.query.filter(
+        Nutrition.time == "Snacks").order_by(func.random()).first()
+
+    return workouts, [breakfast, lunch, dinner, snack]
+
+
 @app.before_first_request
 def create_table():
     db.create_all()
     seed_plans()
+    populate_workouts_and_nutrition()
 
 
 @app.route('/')
@@ -133,7 +175,8 @@ def logout():
 @app.route('/dashboard')
 @login_required
 def dashboard():
-    return render_template('dashboard.html')
+    workouts, meals = get_random_workout_and_nutrition()
+    return render_template('dashboard.html', workouts=workouts, meals=meals)
 
 
 @app.route('/profile')
