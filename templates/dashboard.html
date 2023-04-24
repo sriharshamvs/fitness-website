@@ -12,8 +12,8 @@
       </p>
       <ul class="list-group">
         {% for workout in workouts %}
-        <li class="list-group-item">
-          <strong>Name:</strong> {{ workout.name }}<br />
+        <li class="list-group-item card">
+          <strong>Workout name:</strong> {{ workout.name }}<br />
           <strong>Reps:</strong> {{ workout.reps }}
         </li>
         {% endfor %}
@@ -28,7 +28,7 @@
       </p>
       <ul class="list-group">
         {% for meal in meals %}
-        <li class="list-group-item">
+        <li class="list-group-item card">
           <strong>{{ meal.time }}:</strong> {{ meal.meal }}
         </li>
         {% endfor %}
