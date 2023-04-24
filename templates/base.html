@@ -3,36 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Our Plans - Fitness Hub</title>
+    {% block title %}
+    <title>Home - Fitness Hub</title>
+    {% endblock %}
     <!-- Favicon -->
     <link
       rel="shortcut icon"
       type="image/x-icon"
-      href="assets/favicon/favicon.ico"
+      href="{{ url_for('static', filename='assets/favicon/favicon.ico') }}"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="assets/favicon/favicon-16x16.png"
+      href="{{ url_for('static', filename='assets/favicon/favicon-16x16.png') }}"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="assets/favicon/favicon-32x32.png"
+      href="{{ url_for('static', filename='assets/favicon/favicon-32x32.png') }}"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="512x512"
-      href="assets/favicon/android-chrome-512x512.png"
+      href="{{ url_for('static', filename='assets/favicon/android-chrome-512x512.png') }}"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="192x192"
-      href="assets/favicon/android-chrome-192x192.png"
+      href="{{ url_for('static', filename='assets/favicon/android-chrome-192x192.png') }}"
     />
     <!-- Bootstrap CSS -->
     <link
@@ -40,33 +42,38 @@
       rel="stylesheet"
     />
     <!-- Custom CSS file -->
-    <link rel="stylesheet" href="styles/styles.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles/styles.css') }}"
+    />
     <!-- Add Bootstrap JS and its dependencies -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Font Awesome library -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <!-- Custom JS file -->
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
     <style>
-      .navbar-brand.highlight {
-        color: #007bff;
-        font-weight: bold;
+      .img-fluid {
+        margin-top: 15px;
+        margin-bottom: 30px;
       }
     </style>
   </head>
   <body>
-    <!-- Navigaion bar -->
+    <!-- Navigation bar -->
     <div class="d-flex flex-grow-1">
       <nav class="navbar navbar-expand-md" style="background-color: black">
         <div class="container">
           <a
             class="navbar-brand highlight"
-            href="index.html"
+            href="{{ url_for('index') }}"
             style="color: yellow"
             >Fitness <span style="color: white">Hub</span></a
           >
@@ -83,138 +90,88 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+              {% if current_user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="index.html" style="color: yellow">
+                <a
+                  class="nav-link"
+                  href="{{ url_for('dashboard') }}"
+                  style="color: yellow"
+                >
+                  <i class="fas fa-chart-line"></i> Dashboard</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="{{ url_for('profile') }}"
+                  style="color: yellow"
+                >
+                  <i class="fas fa-user"></i> Profile</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="{{ url_for('logout') }}"
+                  style="color: yellow"
+                >
+                  <i class="fas fa-sign-out"></i> Logout</a
+                >
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="{{ url_for('index') }}"
+                  style="color: yellow"
+                >
                   <i class="fas fa-home"></i> Home</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html" style="color: yellow">
+                <a
+                  class="nav-link"
+                  href="{{ url_for('about') }}"
+                  style="color: yellow"
+                >
                   <i class="fas fa-info-circle"></i> About Us</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html" style="color: yellow">
+                <a
+                  class="nav-link"
+                  href="{{ url_for('contact') }}"
+                  style="color: yellow"
+                >
                   <i class="fas fa-envelope"></i> Contact Us</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="plans.html" style="color: yellow">
+                <a
+                  class="nav-link"
+                  href="{{ url_for('plans') }}"
+                  style="color: yellow"
+                >
                   <i class="fas fa-dumbbell"></i> Our Plans</a
                 >
               </li>
               <li class="nav-item">
                 <a
                   class="nav-link user-login"
-                  href="login.html"
+                  href="{{ url_for('login') }}"
                   style="color: yellow"
                 >
                   <i class="fas fa-user"></i> Login</a
                 >
               </li>
+              {% endif %}
             </ul>
           </div>
         </div>
       </nav>
     </div>
-
-    <!-- Website content -->
-    <div
-      class="container full-height d-flex justify-content-center align-items-center"
-    >
-      <div class="content-wrapper">
-        <!-- Your existing content goes here -->
-        <div class="container mt-5" style="margin-bottom: 30px">
-          <h1>Our Plans</h1>
-          <div class="body-text">
-            <p>
-              Choose from our range of fitness plans designed to help you reach
-              your goals.
-            </p>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card">
-                <div class="card-header" style="background-color: black">
-                  <h3 style="color: yellow">Basic Plan</h3>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">$19.99/month</h4>
-                  <p class="card-text">
-                    Access to our workout library and basic diet plans and personalized classes.
-                  </p>
-                  <ul>
-                    <li>Workout library</li>
-                    <li>Basic diet plans</li>
-                    <li>Monthly progress tracking</li>
-                    <li>Two Free Presonolized Class</li>
-                  </ul>
-                  <a
-                    href="signup.html"
-                    class="btn btn-primary"
-                    style="background-color: black; color: yellow"
-                    >Sign Up Now</a
-                  >
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="card">
-                <div class="card-header" style="background-color: black">
-                  <h3 style="color: yellow">Premium Plan</h3>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">$39.99/month</h4>
-                  <p class="card-text">
-                    Personalized workout and meal plans, plus access to a
-                    dedicated fitness coach.
-                  </p>
-                  <ul>
-                    <li>Personalized workout plans</li>
-                    <li>Custom meal plans</li>
-                    <li>Dedicated fitness coach</li>
-                    <li>Weekly progress tracking</li>
-                  </ul>
-                  <a
-                    href="signup.html"
-                    class="btn btn-primary"
-                    style="background-color: black; color: yellow"
-                    >Sign Up Now</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card">
-                <div class="card-header" style="background-color: black">
-                  <h3 style="color: yellow">Elite Plan</h3>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">$59.99/month</h4>
-                  <p class="card-text">
-                    All Premium features, plus advanced analytics, and priority
-                    support.
-                  </p>
-                  <ul>
-                    <li>Advanced workout analytics</li>
-                    <li>Nutrition tracking</li>
-                    <li>Priority customer support</li>
-                    <li>Access to exclusive content</li>
-                  </ul>
-                  <a
-                    href="signup.html"
-                    class="btn btn-primary"
-                    style="background-color: black; color: yellow"
-                    >Sign Up Now</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="container mt-5" style="margin-bottom: 30px">
+      {% block content %} {% endblock %}
     </div>
 
     <!-- Footer -->
@@ -239,20 +196,40 @@
           <!--Grid column-->
           <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
             <h5 class="text-uppercase" style="color: yellow">Quick Links</h5>
-
             <ul class="list-unstyled mb-0">
+              {% if current_user.is_authenticated %}
               <li>
-                <a href="about.html" class="footer-link">About Us</a>
+                <a href="{{ url_for('about') }}" class="footer-link"
+                  >About Us</a
+                >
               </li>
               <li>
-                <a href="contact.html" class="footer-link">Contact Us</a>
+                <a href="{{ url_for('contact') }}" class="footer-link"
+                  >Contact Us</a
+                >
               </li>
               <li>
-                <a href="signup.html" class="footer-link">Sign Up</a>
+                <a href="{{ url_for('plans') }}" class="footer-link"
+                  >Our Plans</a
+                >
+              </li>
+              {% else %}
+              <li>
+                <a href="{{ url_for('about') }}" class="footer-link"
+                  >About Us</a
+                >
               </li>
               <li>
-                <a href="plans.html" class="footer-link">Our Plans</a>
+                <a href="{{ url_for('contact') }}" class="footer-link"
+                  >Contact Us</a
+                >
               </li>
+              <li>
+                <a href="{{ url_for('signup') }}" class="footer-link"
+                  >Sign Up</a
+                >
+              </li>
+              {% endif %}
             </ul>
           </div>
           <!--Grid column-->
@@ -316,6 +293,6 @@
       <!-- Copyright -->
     </footer>
     <!-- Footer -->
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
   </body>
 </html>

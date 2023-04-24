@@ -1,0 +1,62 @@
+{% extends "base.html" %} {% block content %}
+<div class="container full-height">
+  <h1 class="mt-5">Profile</h1>
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Account Information</h2>
+      <ul class="list-group card">
+        <li class="list-group-item">
+          <strong>Username:</strong> {{ current_user.username }}
+        </li>
+        <li class="list-group-item">
+          <strong>Email:</strong> {{ current_user.email }}
+        </li>
+        <li class="list-group-item">
+          <strong>First Name:</strong> {% if current_user.first_name %} {{
+          current_user.first_name }} {% else %} N/A {% endif %}
+        </li>
+        <li class="list-group-item">
+          <strong>Last Name:</strong> {% if current_user.last_name %} {{
+          current_user.last_name }} {% else %} N/A {% endif %}
+        </li>
+        <li class="list-group-item">
+          <strong>Mobile Number:</strong> {% if current_user.mobile_number %} {{
+          current_user.mobile_number }} {% else %} N/A {% endif %}
+        </li>
+        <li class="list-group-item">
+          <strong>Age:</strong> {% if current_user.age %} {{ current_user.age }}
+          {% else %} N/A {% endif %}
+        </li>
+        <li class="list-group-item">
+          <strong>Height:</strong> {% if current_user.height %} {{
+          current_user.height }} cm {% else %} N/A {% endif %}
+        </li>
+        <li class="list-group-item">
+          <strong>Plan:</strong>
+          {% if user_plan %} {{ user_plan.name }}
+          <ul>
+            <li><strong>Price:</strong> ${{ user_plan.price }}/month</li>
+            <li><strong>Description:</strong> {{ user_plan.description }}</li>
+          </ul>
+          {% else %} You have not selected a plan yet. {% endif %}
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-8">
+      <h2>Personal Information</h2>
+      <p>
+        <strong>Tell Something About Yourself:</strong>
+        {% if current_user.about %} {{ current_user.about }} {% else %} No
+        information provided. {% endif %}
+      </p>
+    </div>
+  </div>
+
+  <a
+    href="{{ url_for('edit_profile') }}"
+    class="btn btn-primary mt-3"
+    style="background-color: black; color: yellow; margin-top: 20px"
+    >Edit Profile</a
+  >
+</div>
+{% endblock %}
