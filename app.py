@@ -154,7 +154,6 @@ def login():
         if user and check_password_hash(user.password, password):
             login_user(user)
             flash('Login successful!', 'success')
-            print("LOGIN SUCCESSFULL")
             return redirect(url_for('dashboard'))
         else:
             flash('Login unsuccessful. Please check your email and password.', 'danger')
@@ -183,7 +182,6 @@ def dashboard():
 @login_required
 def profile():
     user_plan = current_user.plan
-    print("PLAN:::: ", user_plan)
     return render_template('profile.html', user_plan=user_plan)
 
 
@@ -194,10 +192,23 @@ def edit_profile():
         username = request.form['username']
         email = request.form['email']
         about = request.form['about']
+        first_name = request.form['first_name']
+        last_name = request.form['last_name']
+        mobile_number = request.form['mobile_number']
+        age = request.form['age']
+        height = request.form['height']
+        weight = request.form['weight']
 
         current_user.username = username
         current_user.email = email
         current_user.about = about
+        current_user.first_name = first_name
+        current_user.last_name = last_name
+        current_user.mobile_number = mobile_number
+        current_user.age = age
+        current_user.height = height
+        current_user.weight = weight
+
         db.session.commit()
         flash('Your profile has been updated!', 'success')
         return redirect(url_for('profile'))

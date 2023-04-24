@@ -12,6 +12,26 @@
           <strong>Email:</strong> {{ current_user.email }}
         </li>
         <li class="list-group-item">
+          <strong>First Name:</strong> {% if current_user.first_name %} {{
+          current_user.first_name }} {% else %} N/A {% endif %}
+        </li>
+        <li class="list-group-item">
+          <strong>Last Name:</strong> {% if current_user.last_name %} {{
+          current_user.last_name }} {% else %} N/A {% endif %}
+        </li>
+        <li class="list-group-item">
+          <strong>Mobile Number:</strong> {% if current_user.mobile_number %} {{
+          current_user.mobile_number }} {% else %} N/A {% endif %}
+        </li>
+        <li class="list-group-item">
+          <strong>Age:</strong> {% if current_user.age %} {{ current_user.age }}
+          {% else %} N/A {% endif %}
+        </li>
+        <li class="list-group-item">
+          <strong>Height:</strong> {% if current_user.height %} {{
+          current_user.height }} cm {% else %} N/A {% endif %}
+        </li>
+        <li class="list-group-item">
           <strong>Plan:</strong>
           {% if user_plan %} {{ user_plan.name }}
           <ul>

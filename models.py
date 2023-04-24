@@ -18,10 +18,17 @@ class Plan(db.Model):
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(60), nullable=False)
-    plan_id = db.Column(db.Integer, db.ForeignKey('plan.id'), nullable=True)
+    email = db.Column(db.String(20), unique=True, nullable=False)
+    password = db.Column(db.String(10), nullable=False)
     about = db.Column(db.String(500), nullable=True)
+    first_name = db.Column(db.String(20), nullable=True)
+    last_name = db.Column(db.String(20), nullable=True)
+    mobile_number = db.Column(db.String(10), unique=True, nullable=False)
+    age = db.Column(db.Integer, unique=False, nullable=True)
+    height = db.Column(db.Integer, unique=False, nullable=True)
+    weight = db.Column(db.Integer, unique=False, nullable=True)
+
+    plan_id = db.Column(db.Integer, db.ForeignKey('plan.id'), nullable=True)
 
     plan = db.relationship('Plan', backref='users', lazy=True)
 
