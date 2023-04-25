@@ -29,7 +29,6 @@ class User(UserMixin, db.Model):
     weight = db.Column(db.Integer, unique=False, nullable=True)
 
     plan_id = db.Column(db.Integer, db.ForeignKey('plan.id'), nullable=True)
-
     plan = db.relationship('Plan', backref='users', lazy=True)
 
     def __repr__(self):
@@ -38,12 +37,17 @@ class User(UserMixin, db.Model):
 
 class Workout(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    type = db.Column(db.String(50), nullable=False)
-    name = db.Column(db.String(100), nullable=False)
-    reps = db.Column(db.String(100), nullable=False)
+    type = db.Column(db.String(80), nullable=False)
+    name = db.Column(db.String(120), nullable=False)
+    reps = db.Column(db.String(120), nullable=False)
+    video_id = db.Column(db.String(120), nullable=True)
+
+    def __repr__(self):
+        return f'<Workout {self.name}>'
 
 
 class Nutrition(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     time = db.Column(db.String(50), nullable=False)
     meal = db.Column(db.String(200), nullable=False)
+    image_url = db.Column(db.String(255))
