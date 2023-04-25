@@ -56,26 +56,6 @@ def get_youtube_video_id(url):
     return video_id
 
 
-# def populate_workouts_and_nutrition():
-#     # Populate workouts
-#     for workout_type, exercises in WORKOUTS.items():
-#         for exercise in exercises:
-#             video_id = get_youtube_video_id(exercise['video'])
-#             workout = Workout(type=workout_type,
-#                               name=exercise['name'],
-#                               reps=exercise['reps'],
-#                               video_id=video_id)
-#             db.session.add(workout)
-
-#     # Populate nutrition data
-#     for nutrition_data in NUTRITION_DATA:
-#         for meal in nutrition_data['meals']:
-#             nutrition = Nutrition(time=nutrition_data['time'], meal=meal)
-#             db.session.add(nutrition)
-
-#     db.session.commit()
-
-
 def populate_workouts_and_nutrition():
     # Populate workouts
     for workout_type, exercises in WORKOUTS.items():
@@ -96,7 +76,6 @@ def populate_workouts_and_nutrition():
             db.session.add(nutrition)
 
     db.session.commit()
-
 
 
 def get_random_workout_and_nutrition():
