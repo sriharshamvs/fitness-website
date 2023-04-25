@@ -8,8 +8,9 @@ from sqlalchemy.sql.expression import func
 from models import db, User, Plan, Workout, Nutrition
 
 from random import choice
+from urllib.parse import urlparse, parse_qs
 
-from constanst import WORKOUTS, NUTRITION_DATA
+from constanst import WORKOUTS, NUTRITION_DATA, ARTICLES
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
@@ -48,21 +49,54 @@ def seed_plans():
     db.session.commit()
 
 
+def get_youtube_video_id(url):
+    parsed_url = urlparse(url)
+    query_params = parse_qs(parsed_url.query)
+    video_id = query_params.get('v', [None])[0]
+    return video_id
+
+
+# def populate_workouts_and_nutrition():
+#     # Populate workouts
+#     for workout_type, exercises in WORKOUTS.items():
+#         for exercise in exercises:
+#             video_id = get_youtube_video_id(exercise['video'])
+#             workout = Workout(type=workout_type,
+#                               name=exercise['name'],
+#                               reps=exercise['reps'],
+#                               video_id=video_id)
+#             db.session.add(workout)
+
+#     # Populate nutrition data
+#     for nutrition_data in NUTRITION_DATA:
+#         for meal in nutrition_data['meals']:
+#             nutrition = Nutrition(time=nutrition_data['time'], meal=meal)
+#             db.session.add(nutrition)
+
+#     db.session.commit()
+
+
 def populate_workouts_and_nutrition():
     # Populate workouts
     for workout_type, exercises in WORKOUTS.items():
         for exercise in exercises:
+            video_id = get_youtube_video_id(exercise['video'])
             workout = Workout(type=workout_type,
-                              name=exercise['name'], reps=exercise['reps'])
+                              name=exercise['name'],
+                              reps=exercise['reps'],
+                              video_id=video_id)
             db.session.add(workout)
 
     # Populate nutrition data
     for nutrition_data in NUTRITION_DATA:
         for meal in nutrition_data['meals']:
-            nutrition = Nutrition(time=nutrition_data['time'], meal=meal)
+            nutrition = Nutrition(time=nutrition_data['time'],
+                                  meal=meal['name'],
+                                  image_url=meal['image_url'])
             db.session.add(nutrition)
 
     db.session.commit()
+
 
 
 def get_random_workout_and_nutrition():
@@ -82,6 +116,14 @@ def get_random_workout_and_nutrition():
         Nutrition.time == "Snacks").order_by(func.random()).first()
 
     return workouts, [breakfast, lunch, dinner, snack]
+
+
+def calculate_bmi(height_cm, weight_lb):
+    if height_cm and weight_lb:
+        height_m = height_cm / 100  # Convert height from centimeters to meters
+        weight_kg = weight_lb * 0.453592  # Convert weight from pounds to kilograms
+        return weight_kg / (height_m ** 2)
+    return None
 
 
 @app.before_first_request
@@ -175,7 +217,8 @@ def logout():
 @login_required
 def dashboard():
     workouts, meals = get_random_workout_and_nutrition()
-    return render_template('dashboard.html', workouts=workouts, meals=meals)
+    bmi = calculate_bmi(current_user.height, current_user.weight)
+    return render_template('dashboard.html', workouts=workouts, meals=meals, articles=ARTICLES, bmi=bmi)
 
 
 @app.route('/profile')
