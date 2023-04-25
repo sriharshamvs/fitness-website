@@ -23,7 +23,7 @@ class User(UserMixin, db.Model):
     about = db.Column(db.String(500), nullable=True)
     first_name = db.Column(db.String(20), nullable=True)
     last_name = db.Column(db.String(20), nullable=True)
-    mobile_number = db.Column(db.String(10), unique=True, nullable=False)
+    mobile_number = db.Column(db.String(10), unique=True, nullable=True)
     age = db.Column(db.Integer, unique=False, nullable=True)
     height = db.Column(db.Integer, unique=False, nullable=True)
     weight = db.Column(db.Integer, unique=False, nullable=True)
